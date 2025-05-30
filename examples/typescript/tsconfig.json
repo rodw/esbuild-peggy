@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "@tsconfig/node-lts/tsconfig.json",
+    "@tsconfig/node-ts/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "allowArbitraryExtensions": true,
+  },
+  "include": [ "src", "./*.ts", "./*.json" ],
+  "exclude": [ "node_modules", "dist", "package-lock.json" ]
+}
+
+

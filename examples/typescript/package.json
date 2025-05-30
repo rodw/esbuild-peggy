@@ -1,0 +1,25 @@
+{
+  "name": "esbuild-peggy-eg-typescript",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preinstall": "(cd ../.. && npm install && npm run-script build:pack) || echo \"WARNING: failed to build parent module for local dependency; if 'npm install' fails see README.md\"",
+    "clean": "rm -rf dist",
+    "clean:all": "rm -rf dist node_modules package-lock.json yarn.lock pnpm-lock.yaml",
+    "build": "npx jiti ./build.ts",
+    "build:all": "npm install && npm run-script build",
+    "test": "(test $(node dist/index.js 3 + 5) -eq 8 && echo '✅ SUCCESS 😃') || (echo '‼️ FAILURE 😧' >&2 && exit 1)",
+    "calc": "node ./dist/index.js",
+    "smoke-test": "npm run-script clean:all && npm run-script build:all && npm run-script test"
+  },
+  "devDependencies": {
+    "@tsconfig/node-lts": "^22.0.1",
+    "@tsconfig/node-ts": "^23.6.1",
+    "@tsconfig/strictest": "^2.0.5",
+    "esbuild": "^0.25.5",
+    "esbuild-peggy": "file:../../target/esbuild-peggy-latest.tgz",
+    "jiti": "^2.4.2",
+    "typescript": "^5.8.3"
+  }
+}

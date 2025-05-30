@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "@tsconfig/node-lts/tsconfig.json",
+    "@tsconfig/node-ts/tsconfig.json",
+    "@tsconfig/strictest/tsconfig.json"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [ "src/*" ]
+    },
+    "noEmit": true,
+    "rootDirs": [ "src" ],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "checkJs": false,
+    "allowJs": true,
+    "allowArbitraryExtensions": true
+  },
+  "include": [ "src", "scripts", "./*.json" ],
+  "exclude": [ "node_modules", "target", "scratch", "package-lock.json" ]
+}

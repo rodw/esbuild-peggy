@@ -1,0 +1,80 @@
+{
+  "name": "esbuild-peggy",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Rodney Waldhoff",
+  "type": "module",
+  "description": "esbuild plugin for importing PEG.js / Peggy parsers directly in JavaScript / TypeScript",
+  "keywords": [
+    "esbuild",
+    "esbuild-plugin",
+    "peggy",
+    "peg",
+    "peg.js",
+    "pegjs"
+  ],
+  "scripts": {
+    "test": "npx run-s test:eg:js test:eg:ts",
+    "test:eg:js": "cd examples/javascript && npm run-script smoke-test",
+    "test:eg:ts": "cd examples/typescript && npm run-script smoke-test",
+    "clean": "npm run-script clean:build",
+    "clean:build": "npx shx rm -fr target tsconfig.tsbuildinfo || npx shx true",
+    "clean:pack": "npx shx rm -fr target/${npm_package_name}-${npm_package_version}.tgz target/${npm_package_name}-latest.tgz || npx shx true",
+    "clean:lockfiles": "npx shx rm -fr package-lock.json npm-shrinkwrap.json yarn.lock pnpm-lock.yaml node_modules/.cache node_modules/.package-lock.json || npx shx true",
+    "clean:eg": "npx run-p clean:eg:js clean:eg:ts",
+    "clean:eg:js": "cd examples/javascript && npm run-script clean:all",
+    "clean:eg:ts": "cd examples/typescript && npm run-script clean:all",
+    "clean:dep": "npm run-script clean:lockfiles && npm prune && npm dedupe",
+    "clean:node_modules": "npx shx rm -fr node_modules || npx shx true",
+    "clean:all": "npx run-p clean:build clean:dep",
+    "nuke": "npm run-script nuke:install",
+    "nuke:install": "npx run-p clean:pack clean:build clean:eg && npm run-script clean:node_modules && npm install",
+    "nuke:build": "npx run-s nuke:install build:all",
+    "nuke:test": "npx run-s nuke:build test",
+    "build": "npm run-script build:build",
+    "build:build": "npx jiti scripts/build.ts",
+    "build:watch": "npx jiti scripts/build.ts --watch",
+    "build:pack": "npx run-s clean:pack build:build && npm pack --pack-destination target ./target/dist && npx shx ln -s ${npm_package_name}-${npm_package_version}.tgz target/${npm_package_name}-latest.tgz",
+    "build:all": "npm run-script build:pack",
+    "rebuild": "npx jiti scripts/build.ts --clean",
+    "rebuild:watch": "npx jiti scripts/build.ts --clean --watch",
+    "rebuild:all": "npx run-s clean:all build:all",
+    "dep:safe-upgrade": "npx run-s clean:lockfiles clean:dep && npm upgrade",
+    "dep:outdated": "npx npm-check-updates --format group",
+    "dep:outdated:fix": "npm run-script dep:outdated -- --upgrade && npm install",
+    "many": "npx run-s",
+    "jiti": "npx jiti"
+  },
+  "dependencies": {
+    "peggy": "^5.0.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node-lts": "^22.0.1",
+    "@tsconfig/node-ts": "^23.6.1",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/node": "^22.15.24",
+    "esbuild": "^0.25.5",
+    "esbuild-plugin-clean": "^1.0.1",
+    "jiti": "^2.4.2",
+    "npm-check-updates": "^18.0.1",
+    "npm-run-all": "^4.1.5",
+    "shx": "^0.4.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=22",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": ">=10.9",
+      "onFail": "error"
+    }
+  }
+}
