@@ -17,7 +17,7 @@ jobs:
       - name: setup-node-lts
         uses: actions/setup-node@v4
         with:
-          node-version: lts
+          node-version: 'lts/*'
           registry-url: 'https://registry.npmjs.org'
       - name: build-and-test
         run: |
