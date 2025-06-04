@@ -1,4 +1,9 @@
 #!/usr/bin/env ./node_modules/.bin/jiti
+
+// This is the primary entry point for the esbuild-based build pipeline.
+// You can execute this script directly, but we recommend using the build
+// targets defined in ../package.json (such as `npm run build`) instead.
+
 import path from "node:path";
 import esbuild from "esbuild";
 import { clean } from "esbuild-plugin-clean";
