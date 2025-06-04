@@ -16,11 +16,13 @@ jobs:
         with:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: |
+      - name: build-and-test
+        run: |
           npm install
           npm run-script nuke:test
-      - run: |
+      - name: publish-to-npm
+        run: |
           cd target
-          npm publish --dry-run esbuild-peggy-latest.tgz
+          npm publish esbuild-peggy-latest.tgz
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
