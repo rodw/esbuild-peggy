@@ -44,7 +44,7 @@ const buildTargets: esbuild.BuildOptions[] = [
   // TEXT FILES
   {
     ...rootBuildOpts,
-    entryPoints: [ "LICENSE.txt", "README.md" ],
+    entryPoints: [ "README.md", "LICENSE.txt", "AUTHORS.txt", "CONTRIBUTORS.txt" ],
     loader: {
       ".txt": "copy",
       ".md": "copy"
