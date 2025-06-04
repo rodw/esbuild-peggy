@@ -25,6 +25,7 @@ jobs:
           npm run-script nuke:test
       - name: publish-to-npm
         run: |
-          npm publish target/esbuild-peggy-latest.tgz
+          cd target
+          npm publish esbuild-peggy-latest.tgz
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
