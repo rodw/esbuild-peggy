@@ -114,11 +114,9 @@ To build and run the vanilla JavaScript example, complete the following steps:
 
       should generate a parsing error.
 
-
-
 ## Contents
 
-This directory contains 6 primary files:
+This directory contains 4 primary files:
 
 1. [`src/math.pegjs`](./src/math.pegjs) - a PEG.js/Peggy parser specification supporting arithmetic expressions like:
     - `2 + 3` (yielding `5`), or
