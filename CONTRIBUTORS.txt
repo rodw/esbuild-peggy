@@ -1,0 +1,18 @@
+# This file acknowledges significant contributors to esbuild-peggy.
+#
+# The AUTHORS.txt file lists copyright holders. This file lists
+# individual contributors. These lists may be distinct, for example,
+# in the event that an individual contributes code developed under
+# a work-for-hire arrangement, in which case their employer may be
+# the copyright holder. This file is meant to acknowledge
+#
+# This file does not necessarily list everyone that has contributed
+# to the project. Please see the source code revision history and
+# related resources associated with this project's repository for a
+# more complete list of contributors and contributions.
+#
+# Names should be added to this file one-per-line, in the form:
+#   Contributor Name <email-address-or-contact-url>
+# Please keep the list sorted alphabetically by (first) name.
+
+Rodney Waldhoff <https://github.com/rodw>

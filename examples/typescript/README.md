@@ -73,7 +73,7 @@ and a non-error (0) exit code, but that depends on some shell scripting that man
 
 ### Long Version
 
-To build and run the vanilla JavaScript example, complete the following steps:
+To build and run this example complete the following steps:
 
 1. From the _root_ esbuild-peggy directory (the one containing `examples/`, `scripts/`, etc.), run:
 
@@ -114,8 +114,6 @@ To build and run the vanilla JavaScript example, complete the following steps:
 
       should generate a parsing error.
 
-
-
 ## Contents
 
 This directory contains 6 primary files:
@@ -147,7 +145,7 @@ This directory contains 6 primary files:
       - `npm run-script build`, or
       - `./build.ts`
 
-   in order to generate `./dist/index.js`.
+   in order to generate `./dist/index.js`, the esbuild bundle that embeds all of [`./src`](./src)
 
 5. [`package.json`](./package.json) - a conventional Node.js package file, naming (a local copy of) `esbuild-peggy` as `devDependency` and declaring a handful of convenient build-targets:
 
