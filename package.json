@@ -2,8 +2,11 @@
   "name": "esbuild-peggy",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "Rodney Waldhoff",
+  "author": "Rodney Waldhoff (https://github.com/rodw)",
   "type": "module",
+  "homepage": "https://github.com/rodw/esbuild-peggy#readme",
+  "bugs": "https://github.com/rodw/esbuild-peggy/issues",
+  "repository": "github:rodw/esbuild-peggy",
   "description": "esbuild plugin for importing PEG.js / Peggy parsers directly in JavaScript / TypeScript",
   "keywords": [
     "esbuild",

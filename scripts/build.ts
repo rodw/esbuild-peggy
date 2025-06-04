@@ -1,3 +1,4 @@
+#!/usr/bin/env ./node_modules/.bin/jiti
 import path from "node:path";
 import esbuild from "esbuild";
 import { clean } from "esbuild-plugin-clean";
@@ -35,17 +36,14 @@ if (shouldClean) {
 }
 
 const buildTargets: esbuild.BuildOptions[] = [
-  // LEGAL.TXT
+  // TEXT FILES
   {
     ...rootBuildOpts,
-    entryPoints: [ "LICENSE.txt" ],
-    loader: { ".txt": "copy" }
-  },
-  // TYPES.D.TS
-  {
-    ...rootBuildOpts,
-    entryPoints: [ "src/**/*.d.ts" ],
-    loader: { ".ts": "copy" }
+    entryPoints: [ "LICENSE.txt", "README.md" ],
+    loader: {
+      ".txt": "copy",
+      ".md": "copy"
+    }
   },
   // PACKAGE.JSON
   {
@@ -59,6 +57,9 @@ const buildTargets: esbuild.BuildOptions[] = [
           license: parentPkg.license,
           author: parentPkg.author,
           type: parentPkg.type,
+          homepage: parentPkg.homepage,
+          bugs: parentPkg.bugs,
+          repository: parentPkg.repository,
           description: parentPkg.description,
           keywords: parentPkg.keywords,
           engines: parentPkg.engines,
@@ -86,6 +87,12 @@ const buildTargets: esbuild.BuildOptions[] = [
       })
     ]
   },
+  // TYPES.D.TS
+  {
+    ...rootBuildOpts,
+    entryPoints: [ "src/**/*.d.ts" ],
+    loader: { ".ts": "copy" }
+  },
   // MJS (ESM MODULE)
   {
     ...commonBuildOpts,
@@ -97,7 +104,7 @@ const buildTargets: esbuild.BuildOptions[] = [
     ...commonBuildOpts,
     platform: "node",
     outExtension: { ".js": ".cjs" }
-  },
+  }
 ]
 
 async function buildTarget(buildOptions: esbuild.BuildOptions): Promise<unknown> {
