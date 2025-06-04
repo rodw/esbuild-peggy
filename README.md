@@ -14,7 +14,7 @@ Available as [esbuild-peggy](https://www.npmjs.com/package/esbuild-peggy) on npm
 
     or
 
-    ```json
+    ```jsonc
     // FILE: package.json
     {
       "devDependencies": {
