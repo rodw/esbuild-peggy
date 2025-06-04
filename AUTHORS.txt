@@ -1,0 +1,16 @@
+# This is the list of esbuild-peggy authors, for copyright purposes.
+#
+# This file is distinct from the CONTRIBUTORS.txt file.
+# See the latter for an explanation.
+#
+# Note that this list is informational. Lack of inclusion on this
+# list does not necessarily invalidate an author's underlying claim
+# to the ownership of their work. Please see the source code revision
+# history within the version control system for a more comprehensive
+# record of contributions.
+#
+# Authors should be added to this file one-per-line, in the form:
+#   Name of Copyright Holder <email-address-or-contact-url>
+# Please keep the list sorted alphabetically by name (as provided).
+
+Rodney Waldhoff <https://github.com/rodw>
