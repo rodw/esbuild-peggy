@@ -186,17 +186,15 @@ guidelines can help streamline the process for everyone.
       failing unit test, but your report is welcome with or without that.
 
  * Our preferred channel for contributions or changes to the
-   source code and documentation is as a Git "patch" or "pull-request".
+   source code and documentation is as a git "patch" or "pull-request".
 
     - If you've never submitted a pull-request, here's one way to go
       about it:
 
         1. Fork or clone the repository.
-        2. Create a local branch to contain your changes (`git
-           checkout -b my-new-branch`).
+        2. Create a local branch to contain your changes (`git checkout -b my-new-branch`).
         3. Make your changes and commit them to your local repository.
-        4. Create a pull request [as described here](
-           https://help.github.com/articles/creating-a-pull-request).
+        4. Create a pull request [as described here](https://help.github.com/articles/creating-a-pull-request).
 
     - If you'd rather use a private (or just non-GitHub) repository,
       you might find
@@ -211,4 +209,6 @@ guidelines can help streamline the process for everyone.
    or more tests that demonstrate the bug or
    exercise the new feature.
 
- * When you submit a pull request or issue to this repository, your contributions are understood to be made available under the same available the [MIT License](https://github.com/rodw/esbuild-peggy/blob/main/LICENSE.txt) that covers this project.
+ * When you submit a pull request or issue to this repository, your contributions are understood to be made available under the same available the [MIT License](https://github.com/rodw/esbuild-peggy/blob/develop/LICENSE.txt) that covers this project.
+
+ * We are more than happy to acknowledge your contributions both in the source repository and within the released module. Please feel free to request or directly submit changes to the [AUTHORS.txt](https://github.com/rodw/esbuild-peggy/blob/develop/AUTHORS.txt) and/or [CONTRIBUTORS.txt](https://github.com/rodw/esbuild-peggy/blob/develop/CONTRIBUTORS.txt) acknowledgement files together with your pull request.
