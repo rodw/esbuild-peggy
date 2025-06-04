@@ -1,5 +1,4 @@
 name: Publish Package to npmjs
-# run when v<MAJOR>.<MINOR>.<PATCH> tag is pushed...
 on:
   push:
     tags:
@@ -11,10 +10,14 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: checkout-main-branch
+        uses: actions/checkout@v4
         with:
-          node-version: '22.x'
+          ref: main
+      - name: setup-node-lts
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts
           registry-url: 'https://registry.npmjs.org'
       - name: build-and-test
         run: |
@@ -22,7 +25,6 @@ jobs:
           npm run-script nuke:test
       - name: publish-to-npm
         run: |
-          cd target
-          npm publish esbuild-peggy-latest.tgz
+          npm publish target/esbuild-peggy-latest.tgz
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
